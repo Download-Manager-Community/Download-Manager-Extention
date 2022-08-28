@@ -38,9 +38,9 @@ body:
   - type: input
     attributes:
       label: Browser Type
-        description: What type of chromium browser are you using?
-        placeholder: e.g. Google Chrome
-      validations:
+      description: What type of chromium browser are you using?
+      placeholder: e.g. Google Chrome
+    validations:
         required: true
   - type: textarea
     attributes:
