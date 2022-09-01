@@ -106,6 +106,46 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
         console.log("Blocking request.");
         return {redirectUrl: "http://robwu.nl/204" };
       }
+      else if(details.url.indexOf(".visx") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".pi") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".txt") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".log") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".tar") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".rbxl") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".rbxm") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".doc") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".docx") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
+      else if(details.url.indexOf(".ppt") >=0){
+        console.log("Blocking request.");
+        return {redirectUrl: "http://robwu.nl/204" };
+      }
       else if(details.url.indexOf(".bin") >=0){
         if(details.url.indexOf(".bing") >=0){
           console.warn("URLs containing .bin like .bing will be picked up as a download. If this happens please file a bug report.");
@@ -382,6 +422,136 @@ chrome.webRequest.onBeforeRequest.addListener(
         }
         else if(details.url.indexOf(".mp4") >=0){
           console.log("Request url contains .mp4 which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".visx") >=0){
+          console.log("Request url contains .visx which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".pi") >=0){
+          console.log("Request url contains .pi which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".txt") >=0){
+          console.log("Request url contains .txt which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".log") >=0){
+          console.log("Request url contains .log which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".tar") >=0){
+          console.log("Request url contains .tar which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".doc") >=0){
+          console.log("Request url contains .doc which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".docx") >=0){
+          console.log("Request url contains .docx which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".ppt") >=0){
+          console.log("Request url contains .ppt which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".rbxl") >=0){
+          console.log("Request url contains .rbxl which is a download type. Sending to Download Manager.");
+          chrome.storage.local.get(['port'], function(result) {
+            try{
+              httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
+            }
+            catch(err){
+              console.error(err);
+              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+            }
+            console.log('Server port value is ' + result.port);
+          });
+        }
+        else if(details.url.indexOf(".rbxm") >=0){
+          console.log("Request url contains .rbxm which is a download type. Sending to Download Manager.");
           chrome.storage.local.get(['port'], function(result) {
             try{
               httpGet('http://localhost:' + result.port + '/?url="' + details.url + '"');
