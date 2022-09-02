@@ -47,11 +47,11 @@ chrome.webRequest.onHeadersReceived.addListener(
         else{
           if(details.url.indexOf('.zip') >=0){
             console.log("Blocking request.");
-            return {cancel: true}; 
+            return {cancel: true};
           }
           else if(details.url.indexOf(".7z") >=0){
             console.log("Blocking request.");
-            return {cancel: true}; 
+            return {cancel: true};
           }
           else if(details.url.indexOf(".rar") >=0){
             console.log("Blocking request.");
