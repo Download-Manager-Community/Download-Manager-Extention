@@ -1,6 +1,11 @@
 # Download Manager Extention
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Download-Manager-Community/Download-Manager-Extention/CodeQL) ![GitHub issues](https://img.shields.io/github/issues/Download-Manager-Community/Download-Manager-Extention) ![GitHub all releases](https://img.shields.io/github/downloads/Soniczac7/Download-Manager/total) ![GitHub](https://img.shields.io/github/license/Soniczac7/Download-Manager)
+<p align="center">
+<img alt="CodeQL workflow status" src="https://img.shields.io/github/actions/workflow/status/Download-Manager-Community/Download-Manager/codeql-analysis.yml?branch=master&event=push">
+<img alt="GitHub issues" src="https://img.shields.io/github/issues/Download-Manager-Community/Download-Manager-Extention">
+<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Soniczac7/Download-Manager/total"> 
+<img alt="GitHub" src="https://img.shields.io/github/license/Soniczac7/Download-Manager">
+</p>
 
 The repository for the browser extention of Download Manager.
 
