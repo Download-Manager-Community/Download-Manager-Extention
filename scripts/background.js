@@ -21,7 +21,7 @@ chrome.contextMenus.create({
   "onclick": function(info, tab) {
     chrome.storage.local.get(['port'], function(result) {
       try{
-        httpGet('http://localhost:' + result.port + '/?url="' + info.linkUrl + '"?ytdownload=true');
+        httpGet('http://localhost:' + result.port + '/?url="' + info.linkUrl + '"?ytdownload=True');
       }
       catch(err){
         console.error(err);
