@@ -14,6 +14,23 @@ chrome.contextMenus.create({
   }
 });
 
+chrome.contextMenus.create({
+  "title": "Download YouTube Video with Download Manager",
+  "contexts": ["page"],
+  "documentUrlPatterns": ["*://www.youtube.com/*"],
+  "onclick": function(info, tab) {
+    chrome.storage.local.get(['port'], function(result) {
+      try{
+        httpGet('http://localhost:' + result.port + '/?url="' + info.linkUrl + '"?ytdownload=true');
+      }
+      catch(err){
+        console.error(err);
+        alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+      }
+    });
+  }
+});
+
 chrome.webRequest.onHeadersReceived.addListener(
   // ... your code that checks whether the request should be blocked ...
   //  (omitted for brevity)
