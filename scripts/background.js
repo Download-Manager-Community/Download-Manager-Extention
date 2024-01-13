@@ -8,7 +8,7 @@ chrome.contextMenus.create({
       }
       catch(err){
         console.error(err);
-        alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+        alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
       }
     });
   }
@@ -21,11 +21,11 @@ chrome.contextMenus.create({
   "onclick": function(info, tab) {
     chrome.storage.local.get(['port'], function(result) {
       try{
-        httpGet('http://localhost:' + result.port + '/?url="' + info.linkUrl + '"?ytdownload=True');
+        httpGet('http://localhost:' + result.port + '/?url=' + info.pageUrl + '&ytdownload=True');
       }
       catch(err){
         console.error(err);
-        alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+        alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
       }
     });
   }
@@ -246,7 +246,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -259,7 +259,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -272,7 +272,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -285,7 +285,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -298,7 +298,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -311,7 +311,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -324,7 +324,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -337,7 +337,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -350,7 +350,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -363,7 +363,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -376,7 +376,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -389,7 +389,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -402,7 +402,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -415,7 +415,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -428,7 +428,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -441,7 +441,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -454,7 +454,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -467,7 +467,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -480,7 +480,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -493,7 +493,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -506,7 +506,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -519,7 +519,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -532,7 +532,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -545,7 +545,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -558,7 +558,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -571,7 +571,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -584,7 +584,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -597,7 +597,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -610,7 +610,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
@@ -627,7 +627,7 @@ chrome.webRequest.onBeforeRequest.addListener(
             }
             catch(err){
               console.error(err);
-              alert("Failed to send download request to internal server.\nCheck that Download Manager is running and try again.");
+              alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
             }
             console.log('Server port value is ' + result.port);
           });
