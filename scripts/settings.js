@@ -12,11 +12,14 @@ function load(){
     }
 
     serverPort = chrome.storage.local.get(['port'], function(result) {
-       if(result.port == null || result.port == ""){
+       if(result.port == null || result.port == "" || result.port == "undefined"){
            chrome.storage.local.set({"port": "65535"}, function() {
-               serverPortText.value = result.port;
-               serverPort = result.port;
-               console.log('Set server port to ' + result.port);
+            console.log('Server port should now be set to 65535');
+            serverPort = chrome.storage.local.get(['port'], function(result1) {
+                serverPortText.value = result1.port;
+                serverPort = result1.port;
+                console.log('Set server port to ' + result1.port);
+            });
            });
        }
        serverPortText.value = result.port;
@@ -31,10 +34,18 @@ function submitForm(){
         console.error("serverPort or serverPortText is null!");
     }
     else{
-        serverPort = serverPortText.value;
+        var serverPortBoxNumber = parseInt(+serverPortText.value); 
 
-        chrome.storage.local.set({"port": serverPort}, function() {
-            console.log('Set server port to: ' + serverPort);
+        // Check if the port is a number from 1025 to 65535
+        if(serverPortBoxNumber < 1025 || serverPortBoxNumber > 65535 || isNaN(serverPortBoxNumber)){
+            alert("The port must be a number between 1025 and 65535.");
+            return;
+        }
+
+        serverPort = serverPortBoxNumber;
+
+        chrome.storage.local.set({"port": serverPortBoxNumber}, function() {
+            alert('Set server port to: ' + serverPortBoxNumber);
           });
     }
 }

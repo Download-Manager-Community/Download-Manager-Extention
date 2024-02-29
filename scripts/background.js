@@ -32,9 +32,7 @@ chrome.contextMenus.create({
 });
 
 chrome.webRequest.onHeadersReceived.addListener(
-  // ... your code that checks whether the request should be blocked ...
-  //  (omitted for brevity)
-
+  // Check if the 
   function(details) { 
     // return {cancel: true};
     
@@ -43,7 +41,7 @@ chrome.webRequest.onHeadersReceived.addListener(
     });
 
     if(window.toggleExt == null){
-      console.error("Could not determine extension toggle state.\nDefaulting to disabled.");
+      console.warn("Could not determine extension toggle state.\nDefaulting to disabled.");
     }
     else{
       if(window.toggleExt == true){
