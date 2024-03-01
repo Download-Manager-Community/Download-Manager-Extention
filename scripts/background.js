@@ -31,8 +31,19 @@ chrome.contextMenus.create({
   }
 });
 
+chrome.storage.local.get(['port'], function(result) {
+  if(result.port == null || result.port == "" || result.port == "undefined"){
+      chrome.storage.local.set({"port": "65535"}, function() {
+       console.log('Performing first time setup, server port should now be set to 65535.');
+       serverPort = chrome.storage.local.get(['port'], function(result1) {
+           console.log('Set server port to: ' + result1.port);
+       });
+      });
+  }
+  console.log('Server port: ' + result.port);
+});
+
 chrome.webRequest.onHeadersReceived.addListener(
-  // Check if the 
   function(details) { 
     // return {cancel: true};
     
