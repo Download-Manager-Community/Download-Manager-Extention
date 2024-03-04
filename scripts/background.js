@@ -34,17 +34,30 @@ function recreateStuff() {
 
     console.log("Tab switched to: " + curUrl)
     var regex = new RegExp("^(https?\:\/\/)?((www?\.|m?\.)?youtube\.com|^(https?\:\/\/)?(www?\.)?youtu\.be)\/.+$")
-
+    
     if(curUrl.match(regex) == null){
-      // Not YouTube
-      console.log("Not YouTube");
-      chrome.contextMenus.update(contextm, {
-        title: "Download with Download Manager",
-        contexts: ["link"],
-        onclick: function(info, tab) {
-          contextOnClick(info, tab);
-        }
-      });
+      if(curUrl.indexOf("youtube.com") >= 0 || curUrl.indexOf("youtu.be") >= 0){
+        // YouTube
+        console.log("Is YouTube");
+        chrome.contextMenus.update(contextm, {
+          title: "Download YouTube Video/Playlist with Download Manager",
+          contexts: ["all"],
+          onclick: function(info, tab) {
+            contextOnClick(info, tab);
+          }
+        });
+      }
+      else{
+        // Not YouTube
+        console.log("Not YouTube");
+        chrome.contextMenus.update(contextm, {
+          title: "Download with Download Manager",
+          contexts: ["link"],
+          onclick: function(info, tab) {
+            contextOnClick(info, tab);
+          }
+        });
+      }
     }
     else{
       // YouTube
