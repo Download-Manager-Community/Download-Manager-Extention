@@ -2,14 +2,19 @@
 var windowTopTab = [];
 var curWin = 1;
 
+// Add a listener for when the active tab is changed
 chrome.tabs.onActivated.addListener(function(activeInfo) {
   windowTopTab[activeInfo.windowId] = activeInfo.tabId;
   recreateStuff();
 });
+
+// Add a listener for when the active window is changed
 chrome.windows.onFocusChanged.addListener(function(windowId) {
   curWin = windowId;
   recreateStuff();
 });
+
+// Add a listener for when the active tab is changed
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
   if (windowTopTab[curWin])
     if (windowTopTab[curWin] == tabId) {
@@ -17,13 +22,17 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     }
 });
 
-var contextm = chrome.contextMenus.create({
-  "title": "Download with Download Manager",
-  "contexts": ["link"],
-  "onclick": function(info, tab) {
-    contextOnClick(info, tab);
-  }
+// Define the context menu
+chrome.runtime.onInstalled.addListener(function () {
+    chrome.contextMenus.create({
+        id: "downloadWithManager",
+        title: "Download with Download Manager",
+        contexts: ["link"]
+    });
 });
+
+// Regex for YouTube
+var regex = new RegExp("^(https?\:\/\/)?((www?\.|m?\.)?youtube\.com|^(https?\:\/\/)?(www?\.)?youtu\.be)\/.+$")
 
 function recreateStuff() {  
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -33,41 +42,39 @@ function recreateStuff() {
     var curUrl = activeTab.url;
 
     console.log("Tab switched to: " + curUrl)
-    var regex = new RegExp("^(https?\:\/\/)?((www?\.|m?\.)?youtube\.com|^(https?\:\/\/)?(www?\.)?youtu\.be)\/.+$")
     
     if(curUrl.match(regex) == null){
       if(curUrl.indexOf("youtube.com") >= 0 || curUrl.indexOf("youtu.be") >= 0){
         // YouTube
         console.log("Is YouTube");
-        chrome.contextMenus.update(contextm, {
-          title: "Download YouTube Video/Playlist with Download Manager",
-          contexts: ["all"],
-          onclick: function(info, tab) {
-            contextOnClick(info, tab);
-          }
+
+        // Disable the context menu
+        chrome.contextMenus.update("downloadWithManager", {
+            enabled: false
         });
       }
       else{
         // Not YouTube
         console.log("Not YouTube");
-        chrome.contextMenus.update(contextm, {
-          title: "Download with Download Manager",
-          contexts: ["link"],
-          onclick: function(info, tab) {
-            contextOnClick(info, tab);
-          }
+
+        // Enable the context menu
+        chrome.contextMenus.update("downloadWithManager", {
+            title: "Download with Download Manager",
+            contexts: ["link"],
+            enabled: true,
+            onclick: function (info, tab) {
+                contextOnClick(info, tab);
+            }
         });
       }
     }
     else{
       // YouTube
       console.log("Is YouTube");
-      chrome.contextMenus.update(contextm, {
-        title: "Download YouTube Video/Playlist with Download Manager",
-        contexts: ["all"],
-        onclick: function(info, tab) {
-          contextOnClick(info, tab);
-        }
+
+      // Disable the context menu
+      chrome.contextMenus.update("downloadWithManager", {
+          enabled: false
       });
     }
   });
@@ -97,36 +104,6 @@ function contextOnClick(info, tab) {
     }
   });
 }
-
-/*chrome.contextMenus.create({
-  "title": "Download YouTube Video/Playlist with Download Manager",
-  "contexts": ["all"],
-  "documentUrlPatterns": ["*://www.youtube.com/*"],
-  "onclick": function(info, tab) {
-    chrome.storage.local.get(['port'], function(result) {
-      if(info.linkUrl != "" && info.linkUrl != null){
-        try{
-          console.log('Link URL:' + info.linkUrl)
-          httpGet('http://localhost:' + result.port + '/?url="' + info.linkUrl + '"');
-        }
-        catch(err){
-          console.error(err);
-          alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
-        }
-      }
-      else{
-        try{
-          console.log('Page URL: ' + info.pageUrl)
-          httpGet('http://localhost:' + result.port + '/?url=' + info.pageUrl);
-        }
-        catch(err){
-          console.error(err);
-          alert("Failed to send download request to internal server.\nIf the issue persists try the following:\n - Check that Download Manager is running.\n - Ensure the port number is correct in Advanced Options.\n - Try using a different port number.\n - Try restarting Download Manager and your browser.");
-        }
-      }
-    });
-  }
-});*/
 
 chrome.storage.local.get(['port'], function(result) {
   if(result.port == null || result.port == "" || result.port == "undefined"){
