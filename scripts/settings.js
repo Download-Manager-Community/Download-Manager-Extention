@@ -6,7 +6,7 @@ function load(){
     document.getElementById("submit").addEventListener("click", submitForm);
     serverPortText = document.getElementById("serverPort");
     if(serverPortText == null){
-        alert("The extention failed to load correctly. Please restart the extention.");
+        alert("The extension failed to load correctly. Please restart the extension.");
         console.error("serverPortText is null!");
         return;
     }

@@ -10,13 +10,13 @@ function load(){
     document.getElementById("extToggle").addEventListener("click", toggleExt);
     checkbox = document.getElementById("extToggle");
     if(checkbox == null){
-        alert("The extention failed to load correctly. Please restart the extention.");
+        alert("The extension failed to load correctly. Please restart the extension.");
         console.error("checkbox is null!");
         return;
     }
     chrome.storage.local.get(['extToggle'], function(result) {
       checkbox.checked = result.extToggle;
-      console.log('Set extention toggle to ' + result.extToggle);
+      console.log('Set extension toggle to ' + result.extToggle);
     });
 }
 

@@ -277,7 +277,7 @@ chrome.webRequest.onHeadersReceived.addListener(
         }
       }
       else {
-        console.log("Extention is disabled. Request has not been blocked.");
+        console.log("Extension is disabled. Request has not been blocked.");
         return {cancel: false};
       }
     }
@@ -293,7 +293,7 @@ chrome.webRequest.onHeadersReceived.addListener(
     }
   }
   else{
-    console.log("Extention is disabled. Request has not been blocked.");
+    console.log("Extension is disabled. Request has not been blocked.");
   }
   });
 }, {
@@ -719,7 +719,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       }
     }
     else{
-      console.log("Extention is disabled. Not sending to Download Manager.");
+      console.log("Extension is disabled. Not sending to Download Manager.");
     }
     });
     },
